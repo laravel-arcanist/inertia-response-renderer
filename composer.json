@@ -21,6 +21,13 @@
         "phpunit/phpunit": "^9.0",
         "spatie/phpunit-watcher": "^1.23"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Arcanist\\InertiaResponseRendererServiceProvider"
+            ]
+        }
+    },
     "autoload": {
         "psr-4": {
             "Arcanist\\": "src/"
@@ -38,12 +45,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Arcanist\\InertiaResponseRendererServiceProvider"
-            ]
-        }
-    }
+    "prefer-stable": true
 }
