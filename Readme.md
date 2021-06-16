@@ -14,18 +14,24 @@ installed).
 composer require laravel-arcanist/inertia-response-renderer
 ```
 
-Inside `config/arcanist.php`, change the `renderers.renderer` key to
-`Arcanist\InertiaResponseRenderer::class`.
+Inside `config/arcanist.php`, 
+
+1. Change the `renderers.renderer` key to `Arcanist\InertiaResponseRenderer::class`.
+
+2. Add the following line `'inertia_framework' => '',` This can be either **vue** or **react**
+
 
 That’s it.
 
 ## How it works
 
-The reponse renderer will try and resolve step templates via the following
+The response renderer will try and resolve step templates via the following
 convention:
 
 ```
 resources/js/Pages/Wizards/{wizard-slug}/{step-slug}.vue
+
+resources/js/Pages/Wizards/{wizard-slug}/{step-slug}.js
 ```
 
 You can configure the `Wizard` path prefix by changing the

@@ -21,7 +21,14 @@ class InertiaResponseRenderer implements ResponseRenderer
     public function renderStep(WizardStep $step, AbstractWizard $wizard, array $data = []): Response | Responsable | Renderable
     {
         $component = $this->componentBasePath . '/' . Str::studly($wizard::$slug) . '/' . Str::studly($step->slug);
-        $componentPath = resource_path('js/Pages/' . $component . '.vue');
+
+        $inertia_framework = config('arcanist.inertia_framework', 'vue');
+
+        if ($inertia_framework === 'vue' ) {
+            $componentPath = resource_path('js/Pages/' . $component . '.vue');
+        } else {
+            $componentPath = resource_path('js/Pages/' . $component . '.js');
+        }
 
         if (!File::exists($componentPath)) {
             throw new StepTemplateNotFoundException($step);
