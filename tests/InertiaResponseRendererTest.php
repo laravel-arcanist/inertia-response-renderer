@@ -148,9 +148,17 @@ class InertiaResponseRendererTest extends TestCase
     /** @test */
     public function it_throws_an_exception_if_the_template_does_not_exist(): void
     {
+        $inertia_framework = config('arcanist.inertia_framework', 'vue');
+
+        if ($inertia_framework === 'vue') {
         File::shouldReceive('exists')
             ->with(resource_path('js/Pages/Wizards/InertiaWizard/InertiaStep.vue'))
             ->andReturnFalse();
+        }else {
+            File::shouldReceive('exists')
+            ->with(resource_path('js/Pages/Wizards/InertiaWizard/InertiaStep.js'))
+            ->andReturnFalse();
+        }
 
         $this->expectException(StepTemplateNotFoundException::class);
         $this->expectErrorMessage('No template found for step [inertia-step].');
