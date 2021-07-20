@@ -4,12 +4,11 @@ namespace Arcanist;
 
 use Inertia\Inertia;
 use Illuminate\Support\Str;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
-use Illuminate\Http\RedirectResponse;
 use Arcanist\Contracts\ResponseRenderer;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\Support\Responsable;
+use Symfony\Component\HttpFoundation\Response;
 use Arcanist\Exception\StepTemplateNotFoundException;
 
 class InertiaResponseRenderer implements ResponseRenderer
@@ -18,8 +17,11 @@ class InertiaResponseRenderer implements ResponseRenderer
     {
     }
 
-    public function renderStep(WizardStep $step, AbstractWizard $wizard, array $data = []): Response | Responsable | Renderable
-    {
+    public function renderStep(
+        WizardStep $step,
+        AbstractWizard $wizard,
+        array $data = []
+    ): Response | Responsable | Renderable {
         $component = $this->componentBasePath . '/' . Str::studly($wizard::$slug) . '/' . Str::studly($step->slug);
         $componentPath = resource_path('js/Pages/' . $component . '.vue');
 
@@ -37,7 +39,7 @@ class InertiaResponseRenderer implements ResponseRenderer
         return Inertia::render($component, $viewData);
     }
 
-    public function redirect(WizardStep $step, AbstractWizard $wizard): RedirectResponse
+    public function redirect(WizardStep $step, AbstractWizard $wizard): Response | Responsable | Renderable
     {
         if (!$wizard->exists()) {
             return redirect()->route('wizard.' . $wizard::$slug . '.create');
@@ -49,8 +51,11 @@ class InertiaResponseRenderer implements ResponseRenderer
         );
     }
 
-    public function redirectWithError(WizardStep $step, AbstractWizard $wizard, ?string $error = null): RedirectResponse
-    {
+    public function redirectWithError(
+        WizardStep $step,
+        AbstractWizard $wizard,
+        ?string $error = null
+    ): Response | Responsable | Renderable {
         return redirect()->route(
             'wizard.' . $wizard::$slug . '.show',
             [$wizard->getId(), $step->slug]
