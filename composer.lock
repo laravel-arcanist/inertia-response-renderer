@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4facd580595712b7e2c40dd0c09d1c68",
+    "content-hash": "ca636801c3c92839b56b90c430d9c731",
     "packages": [
         {
             "name": "brick/math",
@@ -555,16 +555,16 @@
         },
         {
             "name": "laravel-arcanist/arcanist",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel-arcanist/arcanist.git",
-                "reference": "ecb3f51c5b63222f1c40d700218f09699f5b6f14"
+                "reference": "9dc3fedbfa196704ac05da681f7983b4e898103f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel-arcanist/arcanist/zipball/ecb3f51c5b63222f1c40d700218f09699f5b6f14",
-                "reference": "ecb3f51c5b63222f1c40d700218f09699f5b6f14",
+                "url": "https://api.github.com/repos/laravel-arcanist/arcanist/zipball/9dc3fedbfa196704ac05da681f7983b4e898103f",
+                "reference": "9dc3fedbfa196704ac05da681f7983b4e898103f",
                 "shasum": ""
             },
             "require": {
@@ -607,7 +607,7 @@
             "description": "A package to take the pain out of building multi-step form wizards in Laravel.",
             "support": {
                 "issues": "https://github.com/laravel-arcanist/arcanist/issues",
-                "source": "https://github.com/laravel-arcanist/arcanist/tree/0.4.0"
+                "source": "https://github.com/laravel-arcanist/arcanist/tree/0.5.0"
             },
             "funding": [
                 {
@@ -615,7 +615,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-07-20T03:50:27+00:00"
+            "time": "2021-08-04T08:59:59+00:00"
         },
         {
             "name": "laravel/framework",
