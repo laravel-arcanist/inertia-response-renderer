@@ -4,12 +4,10 @@ namespace Arcanist;
 
 use Inertia\Inertia;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 use Arcanist\Contracts\ResponseRenderer;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\Support\Responsable;
 use Symfony\Component\HttpFoundation\Response;
-use Arcanist\Exception\StepTemplateNotFoundException;
 
 class InertiaResponseRenderer implements ResponseRenderer
 {
@@ -23,11 +21,6 @@ class InertiaResponseRenderer implements ResponseRenderer
         array $data = []
     ): Response | Responsable | Renderable {
         $component = $this->componentBasePath . '/' . Str::studly($wizard::$slug) . '/' . Str::studly($step->slug);
-        $componentPath = resource_path('js/Pages/' . $component . '.vue');
-
-        if (!File::exists($componentPath)) {
-            throw new StepTemplateNotFoundException($step);
-        }
 
         $viewData = [
             'arcanist' => array_filter([

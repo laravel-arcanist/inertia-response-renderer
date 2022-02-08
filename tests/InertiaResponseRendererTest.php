@@ -145,20 +145,6 @@ class InertiaResponseRendererTest extends TestCase
         $response->assertSessionHasErrors('wizard');
     }
 
-    /** @test */
-    public function it_throws_an_exception_if_the_template_does_not_exist(): void
-    {
-        File::shouldReceive('exists')
-            ->with(resource_path('js/Pages/Wizards/InertiaWizard/InertiaStep.vue'))
-            ->andReturnFalse();
-
-        $this->expectException(StepTemplateNotFoundException::class);
-        $this->expectErrorMessage('No template found for step [inertia-step].');
-
-        $this->makeRenderer()
-            ->renderStep($this->step, $this->wizard, []);
-    }
-
     protected function makeRenderer(): ResponseRenderer
     {
         return new InertiaResponseRenderer('Wizards');
