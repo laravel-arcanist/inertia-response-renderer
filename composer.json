@@ -1,8 +1,8 @@
 {
     "name": "laravel-arcanist/inertia-response-renderer",
-    "type": "library",
     "description": "Inertia response renderer for Arcanist",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Kai Sassnowski",
@@ -21,13 +21,8 @@
         "phpunit/phpunit": "^9.0",
         "spatie/phpunit-watcher": "^1.23"
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Arcanist\\InertiaResponseRendererServiceProvider"
-            ]
-        }
-    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Arcanist\\": "src/"
@@ -38,8 +33,18 @@
             "Arcanist\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Arcanist\\InertiaResponseRendererServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "post-install-cmd": [
             "composer normalize"
@@ -47,10 +52,5 @@
         "post-update-cmd": [
             "composer normalize"
         ]
-    },
-    "config": {
-        "allow-plugins": {
-            "ergebnis/composer-normalize": true
-        }
     }
 }
