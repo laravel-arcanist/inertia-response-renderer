@@ -18,7 +18,8 @@
         "ergebnis/composer-normalize": "^2.13",
         "mockery/mockery": "^1.4",
         "orchestra/testbench": "^6.17 || ^7.6",
-        "phpunit/phpunit": "^9.0"
+        "phpunit/phpunit": "^9.0",
+        "roave/security-advisories": "dev-master"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
