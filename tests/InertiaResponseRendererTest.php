@@ -16,7 +16,6 @@ use Arcanist\Contracts\ResponseRenderer;
 use Arcanist\Tests\Fixtures\InertiaStep;
 use Arcanist\Tests\Fixtures\InertiaWizard;
 use Arcanist\Testing\ResponseRendererContractTests;
-use Arcanist\Exception\StepTemplateNotFoundException;
 
 class InertiaResponseRendererTest extends TestCase
 {
@@ -33,6 +32,11 @@ class InertiaResponseRendererTest extends TestCase
         $this->wizard::$slug = 'inertia-wizard';
         $this->step = m::mock(InertiaStep::class);
         $this->step->slug = 'inertia-step';
+    }
+
+    public function throws_an_exception_if_the_template_does_not_exist(): void
+    {
+        $this->markTestSkipped('Not possible to test if template exists from Laravel');
     }
 
     /** @test */
