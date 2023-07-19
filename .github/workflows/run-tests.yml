@@ -18,8 +18,8 @@ jobs:
             testbench: ^7.6
             larastan: ^2.0
           - laravel: 10.*
-            testbench: ^8.5
-            larastan: ^2.6
+            testbench: ^8.5.10
+            larastan: ^2.6.3
         os: [ubuntu-latest]
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
